@@ -1,7 +1,7 @@
 {
   "name": "googlebooks-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a Book Search Engine using MERN (MongoDB, Express, React, Node) stack. It is an application that allows users to search for books using the Google Books API. Users can create an account, save books to their profile, and delete saved books from their profile.",
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
@@ -16,6 +16,18 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
-    "apollo-server-express": "^2.15.0"
-  }
+    "apollo-server-express": "^2.15.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZG4219/Book-Search-Engine-MERN-.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ZG4219/Book-Search-Engine-MERN-/issues"
+  },
+  "homepage": "https://github.com/ZG4219/Book-Search-Engine-MERN-#readme"
 }
