@@ -20,3 +20,7 @@ Once the application is up and running, you can open it in your browser by going
 ## Technologies Used
 
 This application was built using the MERN stack. The front-end was built with React, using components from the React-Bootstrap library. The back-end was built with Node.js and Express, and the database was built with MongoDB. Axios was used to make API calls to the Google Books API.
+
+## Link
+
+Github: https://github.com/ZG4219/Book-Search-Engine-MERN-
