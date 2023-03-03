@@ -8,8 +8,8 @@ To run this application on your local machine, please follow the below steps:
 
 1. Clone this repository onto your local machine.
 2. Open the terminal or command prompt and navigate to the root directory of the project.
-3. Run the command npm install to install all the necessary dependencies.
-4. Run the command npm start to start the application.
+3. Run the command `npm install` to install all the necessary dependencies.
+4. Run the command `npm start` to start the application.
 
 - Note: This application requires Node.js and MongoDB to be installed on your local machine.
 
@@ -23,4 +23,5 @@ This application was built using the MERN stack. The front-end was built with Re
 
 ## Link
 
-Github: https://github.com/ZG4219/Book-Search-Engine-MERN-
+- Github: https://github.com/ZG4219/Book-Search-Engine-MERN-
+- Heroku: 
