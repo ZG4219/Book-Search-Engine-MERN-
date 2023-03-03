@@ -3,7 +3,8 @@ const path = require('path');
 const { ApolloServer } = require('apollo-server-express');
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
-
+const { User, Book } = require('./models');
+const { authMiddleware } = require('./utils/auth');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -20,20 +21,21 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: ({ req }) => {
-    // get the user token from the headers
+    // extract the token from the request headers
     const token = req.headers.authorization || '';
 
-    // try to retrieve a user with the token
-    const user = getUser(token);
+    // decode the token to get the user's ID
+    const { id } = authMiddleware(token);
 
-    // add the db models and the user to the context
-    return { user };
+    // find the user in the database by ID
+    const user = User.findById(id);
+
+    // return the context object with the user and models
+    return { user, models: { User, Book } };
   },
 });
 
-server.start().then(() => {
-  server.applyMiddleware({ app });
-});
+server.applyMiddleware({ app });
 
 db.once('open', () => {
   app.listen(PORT, () => console.log(`🌍 Now listening on localhost:${PORT}`));

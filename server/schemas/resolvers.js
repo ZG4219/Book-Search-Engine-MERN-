@@ -13,6 +13,14 @@ const resolvers = {
       }
       throw new AuthenticationError("Not logged in");
     },
+    // get all books
+    books: async () => {
+      return await Book.find({});
+    },
+    // get a book by id
+    book: async (parent, { id }) => {
+      return await Book.findById(id);
+    },
   },
 
   Mutation: {
@@ -54,6 +62,26 @@ const resolvers = {
         return updatedUser;
       }
       throw new AuthenticationError("You need to be logged in!");
+    },
+    // add a new book
+    addBook: async (parent, { title, author }) => {
+      const book = new Book({ title, author });
+      await book.save();
+      return book;
+    },
+    // delete a book by id
+    deleteBook: async (parent, { id }) => {
+      const book = await Book.findByIdAndDelete(id);
+      return book;
+    },
+    // update a book by id
+    updateBook: async (parent, { id, title, author }) => {
+      const book = await Book.findByIdAndUpdate(
+        id,
+        { title, author },
+        { new: true }
+      );
+      return book;
     },
   },
 };
